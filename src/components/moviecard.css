@@ -1,0 +1,11 @@
+.imgHeight{
+    height: 350px;
+}
+
+.hoverCard{
+    transition: transform 200ms ;
+}
+
+.hoverCard:hover{
+    transform: scale(1.15);
+}
