@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import {useParams} from "react-router-dom"
+import {Link, useParams} from "react-router-dom"
 import {Accordion} from "react-bootstrap"
 import "./components/moviecard.css"
 
@@ -32,12 +32,16 @@ const MovieScreen = () => {
 
   
     return (
-    
-      <div className='container' style={{width :"80vw" }}>
+      <div>
+        <div className='container d-flex justify-content-between align-items-center py-3' style={{width :"80vw" }}>
+          <Link to={`/`} className="btn btn-dark"><i className="fa-solid fa-house"></i> Home</Link>
+          <Link to={`/favourites`} className="btn btn-warning"><i className="fa-regular fa-heart"></i> Favourites</Link>
+        </div>
+        <div className='container' style={{width :"80vw" }} >
         {movie ? <div className="card mb-3" style={{minHeight :"500px" }}>
         <div className="row g-0">
         <div className="col-md-4 hoverCard">
-        <img src={movie.Poster} class="card-img" style={{Height :"500px" }} alt={movie.Title}/> 
+        <img src={movie.Poster} class="card-img" style={{minHeight :"500px" }} alt={movie.Title}/> 
         </div>
         <div className="col-md-8 ">
           <div className="card-body">
@@ -70,6 +74,9 @@ const MovieScreen = () => {
 </div></div> } 
         
     </div>
+      </div>
+    
+      
       
         
     )

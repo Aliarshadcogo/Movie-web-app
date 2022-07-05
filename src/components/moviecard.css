@@ -9,3 +9,13 @@
 .hoverCard:hover{
     transform: scale(1.15);
 }
+
+.favImage{
+    width : 50%;
+}
+
+@media only screen and (max-width: 768px){
+    .favImage{
+        width: 80%
+    }
+}

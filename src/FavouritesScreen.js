@@ -4,6 +4,7 @@ import {Link} from "react-router-dom"
 import "./components/moviecard.css"
 import {useDispatch, useSelector} from "react-redux"
 import {removeFromFav} from "./actions/favActions"
+import image from "./movie.png"
 
 
 const FavouritesScreen = () => {
@@ -21,11 +22,15 @@ const FavouritesScreen = () => {
 
   return (
     <div className="container">
-      <h3>Your Favourites</h3>
+        <div className="d-flex justify-content-between align-items-center">
+        <h3>Your Favourites</h3>
+        <Link to={`/`} className="btn btn-outline btn-dark"><i class="fa-solid fa-house"></i> Home</Link>
+        </div>
+      
       <div className="row">
       {movies && movies.length>0 ? movies.map(movie =><div className="col-md-3" key={movie.imdbID}>
       <div className="card my-3 hoverCard" >
-      <Link className="" to={`/${movie.imdbID}`}>
+      <Link className="" to={`/movie/${movie.imdbID}`}>
         {" "}
         <img
           className="card-img-top imgHeight"
@@ -38,11 +43,11 @@ const FavouritesScreen = () => {
           Explore
         </Link>
         <Button variant="danger" onClick={() => deleteMovie(movie.imdbID)}>
-        <i class="fa-solid fa-trash-can"></i>
+        <i className="fa-solid fa-trash-can"></i>
         </Button>
       </div>
     </div>
-      </div> )   : <div>You have nothing here </div>}
+      </div> )   : <div className="d-flex justify-content-center align-items-center flex-column"><h5 className="text-dark mt-3">You have Nothing here. Go to Home</h5><img src={image} className="favImage"/></div>}
       </div>
     
     </div>

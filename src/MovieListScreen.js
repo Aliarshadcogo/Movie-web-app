@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Form, Button } from "react-bootstrap";
 import Movielist from "./components/Movielist";
-import { movies } from "./movies.js";
+import { movies as films } from "./movies.js";
 import {useDispatch} from "react-redux"
 import {addToFav} from "./actions/favActions"
 
@@ -18,11 +18,12 @@ const MovieListScreen = () => {
     const movie_list = localStorage.getItem("movies");
     
     
-    if (movie_list) {
+    if (movie_list === undefined) {
+      console.log(movie_list)
       setItems(JSON.parse(movie_list));
       
     } else {
-      setItems(movies.Search);
+      setItems(films.Search);
       localStorage.setItem("movies", JSON.stringify(items));
     }
 
@@ -73,7 +74,7 @@ const MovieListScreen = () => {
       {items && items.length > 0 ? (
         <Movielist movies={items} addToFavourites={addToFavourites}/>
       ) : (
-        <div>Search a movie from the search box</div>
+        <div className="container">Search a movie from the search box</div>
       )}
     </>
   );

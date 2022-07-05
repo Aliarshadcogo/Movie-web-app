@@ -42,7 +42,7 @@ const Moviecard = ({ movie, addToFavourites }) => {
           Explore
         </Link>
         {
-          pre ? <Button variant="danger" onClick={() => deleteMovie(movie.imdbID)}><i class="fa-solid fa-trash-can"></i></Button> : <Button variant="warning" onClick={() => addToFavourites(movie)}>
+          pre ? <Button variant="danger" onClick={() => deleteMovie(movie.imdbID)}><i className="fa-solid fa-trash-can"></i></Button> : <Button variant="warning" onClick={() => addToFavourites(movie)}>
              <i className="fa-regular fa-heart"></i></Button>
         }
       </div>
